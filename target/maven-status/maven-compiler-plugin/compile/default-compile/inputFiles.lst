@@ -1,0 +1,12 @@
+D:\Interviews\SpringAssignment\src\main\java\com\salomao\springassignment\service\BookService.java
+D:\Interviews\SpringAssignment\src\main\java\com\salomao\springassignment\web\dto\BookRecordOut.java
+D:\Interviews\SpringAssignment\src\main\java\com\salomao\springassignment\error\exception\ResponseException.java
+D:\Interviews\SpringAssignment\src\main\java\com\salomao\springassignment\web\dto\BookRecordIn.java
+D:\Interviews\SpringAssignment\src\main\java\com\salomao\springassignment\error\ApiError.java
+D:\Interviews\SpringAssignment\src\main\java\com\salomao\springassignment\config\WebMvcConfig.java
+D:\Interviews\SpringAssignment\src\main\java\com\salomao\springassignment\error\handler\MethodArgumentNotValidExceptionHandler.java
+D:\Interviews\SpringAssignment\src\main\java\com\salomao\springassignment\web\dto\InsertResponseDTO.java
+D:\Interviews\SpringAssignment\src\main\java\com\salomao\springassignment\SpringAssignmentApplication.java
+D:\Interviews\SpringAssignment\src\main\java\com\salomao\springassignment\model\Book.java
+D:\Interviews\SpringAssignment\src\main\java\com\salomao\springassignment\web\controller\BookController.java
+D:\Interviews\SpringAssignment\src\main\java\com\salomao\springassignment\repository\BookRepository.java

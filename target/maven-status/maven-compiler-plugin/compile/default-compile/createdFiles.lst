@@ -1,0 +1,13 @@
+com\salomao\springassignment\error\exception\ResponseException.class
+com\salomao\springassignment\web\dto\BookRecordIn.class
+com\salomao\springassignment\error\ApiError.class
+com\salomao\springassignment\error\handler\MethodArgumentNotValidExceptionHandler$Error.class
+com\salomao\springassignment\error\handler\MethodArgumentNotValidExceptionHandler.class
+com\salomao\springassignment\service\BookService.class
+com\salomao\springassignment\SpringAssignmentApplication.class
+com\salomao\springassignment\config\WebMvcConfig.class
+com\salomao\springassignment\model\Book.class
+com\salomao\springassignment\repository\BookRepository.class
+com\salomao\springassignment\web\dto\InsertResponseDTO.class
+com\salomao\springassignment\web\controller\BookController.class
+com\salomao\springassignment\web\dto\BookRecordOut.class
