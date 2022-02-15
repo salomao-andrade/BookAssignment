@@ -118,4 +118,16 @@ public class BookService {
         return !(bookRepo.findByTitle(title).isPresent() || bookRepo.findByIsbn(isbn).isPresent());
     }
 
+    /**
+     * Deletes a book
+     * @param id id of book to be deleted
+     * @return Success message
+     * @throws ResponseException 404 NOT FOUND
+     */
+    public String deleteBook(Integer id) throws ResponseException {
+        Book book = bookRepo.findById(id).orElseThrow(() -> new ResponseException(HttpStatus.NOT_FOUND, "error.book.notFound"));
+        bookRepo.delete(book);
+        return "success.book.delete";
+
+    }
 }

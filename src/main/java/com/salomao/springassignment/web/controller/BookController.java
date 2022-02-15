@@ -19,6 +19,7 @@ import net.kaczmarzyk.spring.data.jpa.domain.Like;
 import net.kaczmarzyk.spring.data.jpa.web.annotation.And;
 import net.kaczmarzyk.spring.data.jpa.web.annotation.Spec;
 import org.springframework.context.MessageSource;
+import org.springframework.context.NoSuchMessageException;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -81,7 +82,6 @@ public class BookController {
     public ResponseEntity<List<BookRecordOut>> getBooks(@And({
             @Spec(path = "title", spec = Like.class),
             @Spec(path = "isbn", spec = Like.class),
-            @Spec(path = "status", spec = Equal.class),
             @Spec(
                     path = "publishedDate",
                     params = {"publishedAfter", "publishedBefore"},
@@ -153,6 +153,18 @@ public class BookController {
             }
             throw new ResponseStatusException(e.getCode(),
                     messageSource.getMessage(e.getMessage(), null, request.getLocale()), e);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Deletes a book",
+            responses = {@ApiResponse(responseCode = "400", description = "Invalid filters")})
+    public ResponseEntity<String> deleteBook(@PathVariable Integer id, HttpServletRequest request) {
+        try {
+            return ResponseEntity.ok(messageSource.getMessage(bookService.deleteBook(id), null, request.getLocale()));
+        } catch (ResponseException e) {
+            throw new ResponseStatusException(e.getCode(),
+                    String.format(messageSource.getMessage(e.getMessage(), null, request.getLocale()), id), e);
         }
     }
 
