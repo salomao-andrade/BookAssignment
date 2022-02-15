@@ -3,7 +3,6 @@ package com.salomao.springassignment.error;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
-import org.springframework.http.HttpStatus;
 @Data
 @ToString
 @AllArgsConstructor

@@ -8,7 +8,9 @@ import com.salomao.springassignment.service.BookService;
 import com.salomao.springassignment.web.dto.BookRecordIn;
 import com.salomao.springassignment.web.dto.BookRecordOut;
 import com.salomao.springassignment.web.dto.InsertResponseDTO;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.kaczmarzyk.spring.data.jpa.domain.Between;
@@ -48,6 +50,9 @@ public class BookController {
      * @return ResponseEntity with StatusCode 200 and single BookRecord or StatusCode 404 NOT FOUND
      */
     @GetMapping("/{id}")
+    @Operation(summary = "Get book",
+            responses = {@ApiResponse(responseCode = "404", description = "Book was not found")}
+    )
     public ResponseEntity<BookRecordOut> getBook(@PathVariable Integer id, HttpServletRequest request) {
         try {
             return ResponseEntity.ok(bookService.getBookById(id));
@@ -71,6 +76,8 @@ public class BookController {
      * @return ResponseEntity with StatusCode 200 and List of BookRecords or StatusCode 400 BAD REQUEST
      */
     @GetMapping
+    @Operation(summary = "Get List of Books",
+            responses = {@ApiResponse(responseCode = "400", description = "Invalid filters")})
     public ResponseEntity<List<BookRecordOut>> getBooks(@And({
             @Spec(path = "title", spec = Like.class),
             @Spec(path = "isbn", spec = Like.class),
@@ -104,6 +111,8 @@ public class BookController {
      * or StatusCode 400 BAD REQUEST and error message
      */
     @PostMapping
+    @Operation(summary = "Create Book",
+            responses = {@ApiResponse(responseCode = "400", description = "Bad request")})
     public ResponseEntity<InsertResponseDTO> insertBook(@Valid @RequestBody BookRecordIn bookRecordIn,
                                                         HttpServletRequest request) {
         if (bookService.checkIfTitleAndISBNIsUnique(bookRecordIn.title(), bookRecordIn.isbn())) {
@@ -124,6 +133,12 @@ public class BookController {
      * @return ResponseEntity with StatusCode 200 and success message or StatusCode 404 NOT FOUND or 400 BAD REQUEST
      */
     @PutMapping("/{id}")
+    @Operation(summary = "Update Book",
+            responses = {
+                @ApiResponse(responseCode = "400", description = "Bad request"),
+                @ApiResponse(responseCode = "404", description = "Book was not found")
+
+            })
     public ResponseEntity<String> updateBook(@RequestBody @Valid BookRecordIn bookRecordIn,
                                              @PathVariable Integer id, HttpServletRequest request) {
         try {
