@@ -3,7 +3,6 @@ package com.salomao.springassignment.web.controller;
 import com.salomao.springassignment.error.ApiError;
 import com.salomao.springassignment.error.exception.ResponseException;
 import com.salomao.springassignment.model.Book;
-import com.salomao.springassignment.repository.BookRepository;
 import com.salomao.springassignment.service.BookService;
 import com.salomao.springassignment.web.dto.BookRecordIn;
 import com.salomao.springassignment.web.dto.BookRecordOut;
@@ -14,12 +13,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.kaczmarzyk.spring.data.jpa.domain.Between;
-import net.kaczmarzyk.spring.data.jpa.domain.Equal;
 import net.kaczmarzyk.spring.data.jpa.domain.Like;
 import net.kaczmarzyk.spring.data.jpa.web.annotation.And;
 import net.kaczmarzyk.spring.data.jpa.web.annotation.Spec;
 import org.springframework.context.MessageSource;
-import org.springframework.context.NoSuchMessageException;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,8 +33,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class BookController {
-
-    private final BookRepository bookRepository;
 
     private final BookService bookService;
 
