@@ -1,6 +1,5 @@
 package com.salomao.springassignment.error.exception;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.http.HttpStatus;
@@ -10,7 +9,6 @@ import java.io.Serializable;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@AllArgsConstructor
 public class ResponseException extends Exception implements Serializable {
 
     @Serial

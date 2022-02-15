@@ -1,8 +1,6 @@
 package com.salomao.springassignment.model;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,8 +13,6 @@ import java.time.LocalDate;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
-@ToString
-@EqualsAndHashCode
 @Entity
 public class Book implements Serializable {
 
